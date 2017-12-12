@@ -1,3 +1,8 @@
+
+label {
+  margin-bottom: 3px;
+}
+
 body {
   margin: 5px;
   background-image: url('../images/bg.jpg');
@@ -27,6 +32,8 @@ label {
   border-left: 5px solid transparent;
   border-top: 5px solid transparent;
   border: 3px solid transparent;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 /** Cajas por tamaños */
@@ -102,12 +109,13 @@ label {
 
 /** Cabecera para las cajas */
 .box-head {
-  height: 30px;
+  /* height: 40px; */
   border-bottom: 2px solid #408abf;
   padding-left: 15px;
   padding-top: 10px;
-  font-size: 14px;
+  font-size: larger;
   color: #FFF;
+  padding-bottom: 7px;
 }
 /** Cuerpo de las cajas */
 .box-body {
@@ -155,7 +163,6 @@ label {
   background-clip: padding-box;         /* for IE9+, Firefox 4+, Opera, Chrome */
   border-top: 5px solid transparent;
   border: 5px solid transparent;
-  width: 20%;
   float: left;
   color: rgb(155, 155, 159);
   padding-bottom: 5px;
@@ -245,7 +252,7 @@ label {
 
 .box-user > div > .agent-data > div {
   padding-left: 10px;
-  padding-top: 2px;
+  padding-top: 0px;
 }
 
 /** border left colors */
@@ -277,7 +284,7 @@ label {
   height: 8px;
   border-radius: 4px;
   margin-left: 15px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .status-talking {
@@ -385,7 +392,7 @@ label {
   * SEARCH INPUT
   */
 .container-1 {
-  width: 300px;
+  /* width: 300px; */
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
@@ -393,7 +400,7 @@ label {
 }
 
 .container-1 input#search {
-  width: 300px;
+  /* width: 300px; */
   height: 30px;
   background: rgba(30, 30, 30, 0.3);
   border: none;
@@ -410,7 +417,7 @@ label {
 
 .container-1 .icon {
   position: absolute;
-  top: 50%;
+  /* top: 50%; */
   margin-left: 15px;
   margin-top: 8px;
   z-index: 1;

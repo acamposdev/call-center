@@ -2,7 +2,9 @@
 <html ng-app="AppRoot">
   <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="/style/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Angular JS -->
     <script src="/js/vendors/angular.min.js"></script>
@@ -21,49 +23,55 @@
     <script src="/js/vendors/Chart.min.js"></script>
     <script src="/js/vendors/angular-chart.min.js"></script>
 
+    <!-- Socket.io -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
   	
   </head>
   <body>
     
-    <div class="box-container">
-      <!-- dashboard box -->
-
-      <div class="box box-2-1">
-        <div class="box-head bb-red">
-          DISTRIBUCION DE LLAMADAS EN TIEMPO REAL
+    <div class="container box-container">
+      
+      <!-- DISTRIBUCION DE AGENTES POR ESTADO -->
+      
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box">
+        <div class="box-4-1">
+          <div class="box-head bb-red">
+            DISTRIBUCION DE LLAMADAS EN TIEMPO REAL
+          </div>
+          <div class="box-body">
+            <!-- contenido dinamico -->
+            <status-statistics></status-statistics>
+          </div>
+          <div class="box-foot"></div>
         </div>
-        <div class="box-body">
-          <!-- contenido dinamico -->
-          <status-statistics></status-statistics>
-        </div>
-        <div class="box-foot"></div>
       </div>
       
+      <!-- DISTRIBUCION DE LLAMADAS POR AGENTES -->
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box">
+        <div class="box-4-1">
+          <div class="box-head">
+            DISTRIBUCION DE LLAMADAS POR AGENTE
+          </div>
+          <div class="box-body">
+            <call-statistics></call-statistics>
+          </div>
+          <div class="box-foot"></div>
+        </div>
+      </div>
       
-      <div class="box box-2-1">
-        <div class="box-head">
-          DISTRIBUCION DE LLAMADAS POR AGENTE
+      <!-- CALL CENTER PANEL -->  
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box">  
+        <div class="box-4">
+          <div class="box-head bb-orange">
+            CALL CENTER (Real Time Supervisor)
+          </div>
+          <div class="box-body" id="callCenter">
+            <call-center>Loading...</call-center>
+          </div>
+          <div class="box-foot"></div>
         </div>
-        <div class="box-body">
-          <call-statistics></call-statistics>
-        </div>
-        <div class="box-foot"></div>
       </div>
-        
-
-        
-        
-
-      <div class="box box-4">
-        <div class="box-head bb-orange">
-          CALL CENTER (Real Time Supervisor)
-        </div>
-        <div class="box-body" id="callCenter">
-          <call-center>Loading...</call-center>
-        </div>
-        <div class="box-foot"></div>
-      </div>
+      
 
 
 
@@ -123,5 +131,14 @@
 
     </div>
 
+    <!-- Bootstrap -->
+    <link href="/style/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
   </body>
 </html>

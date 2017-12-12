@@ -3,14 +3,14 @@
 <div class="box-4">
     <div class="tools">
         <!-- SEARCHER INPUT -->
-        <div class="container-1">
+        <div class="container-1 col-lg-4 col-md-4 col-sm-6 col-xs-12">
             <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="search" id="search" placeholder="Filter by status, agent..." ng-model="criteria"/>
+            <input type="search" id="search" placeholder="Filter by status, agent..." ng-model="criteria" class="col-lg-12"/>
         </div>
     </div>
 </div>
 
-<div class="box-user" ng-repeat="agent in vm.agents | CallCenterFilter:criteria" ng-click="vm.toggleView(agent)">
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 box-user" ng-repeat="agent in vm.agents | CallCenterFilter:criteria" ng-click="vm.toggleView(agent)">
     <div class="{{vm.getCssStatus(agent).statusBl}}">
         <!-- Agent avatar view -->
         <div class="agent-avatar">
