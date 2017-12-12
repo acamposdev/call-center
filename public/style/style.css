@@ -1,5 +1,5 @@
 body {
-  margin: 0px;
+  margin: 5px;
   background-image: url('../images/bg.jpg');
   background-size: 100% 100%;
   font-family: sans-serif;
@@ -295,22 +295,25 @@ label {
 
 
 .statistics {
-  display: inline-flex;
+  /* float: left; */
 }
 .statistics-value {
   font-size: 50px;
   color: white;
+  margin-left: 10px;
+  float: left;
 }
 .statistics-status {
   /* vertical-align: bottom; */
   padding-top: 25px;
   margin-left: 10px;
-
   word-break: keep-all;
   height: auto;
   width: 50px;
   vertical-align: text-bottom;
   font-size: 9px;
+  margin-right: 10px;
+  float: left;
 }
 
 

@@ -22,47 +22,7 @@
     <script src="/js/vendors/angular-chart.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-  	<script type="text/javascript" language="Javascript">
-    var socket = io();
-
-    function postDone(callCenter) {
-      var data = callCenter.agents;
-
-      for(var x = 0; x < data.length; x++) {
-
-
-
-          // Seteamos las estadisticas
-          document.getElementById("statistics").innerHTML = 
-            '<div class="box-1">' +
-              '<div class="statistics">' +
-                '<div class="statistics-value">' + callCenter.statistics.by.status.TALKING + '</div>' +
-                '<div class="statistics-status">TALKING</div>' +
-              '</div>' +
-            '</div>' +
-            '<div class="box-1">' +
-              '<div class="statistics">' +
-                '<div class="statistics-value">' + callCenter.statistics.by.status['NOT AVAILABLE'] + '</div>' +
-                '<div class="statistics-status">NOT AVAILABLE</div>' +
-              '</div>' +
-            '</div>' +
-            '<div class="box-1">' +
-              '<div class="statistics">' +
-                '<div class="statistics-value">' + callCenter.statistics.by.status['AFTER WORK'] + '</div>' +
-                '<div class="statistics-status">AFTER WORK</div>' +
-              '</div>' +
-            '</div>' +
-            '<div class="box-1">' +
-              '<div class="statistics">' +
-                '<div class="statistics-value">' + callCenter.statistics.by.status.AVAILABLE + '</div>' +
-                '<div class="statistics-status">AVAILABLE</div>' +
-              '</div>' +
-            '</div>'
-      }
-    }
-
-    socket.on('call center status', postDone);
-    </script>
+  	
   </head>
   <body>
     
@@ -75,13 +35,7 @@
         </div>
         <div class="box-body">
           <!-- contenido dinamico -->
-          <div id="statistics" class="box-3">
-          </div>
-          <div class="box-1" ng-controller="StatusStatisticsController as vm">
-            <canvas id="doughnut" class="chart chart-doughnut" width="200"
-              chart-data="data" chart-labels="labels" chart-colors="colors">
-            </canvas> 
-          </div>
+          <status-statistics></status-statistics>
         </div>
         <div class="box-foot"></div>
       </div>
@@ -92,12 +46,7 @@
           DISTRIBUCION DE LLAMADAS POR AGENTE
         </div>
         <div class="box-body">
-          <div ng-controller="CallStatisticsController as vm">
-            <canvas id="bar" class="chart chart-bar" height="60"
-              chart-series="series" chart-dataset-override="datasetOverride"
-              chart-data="data" chart-labels="labels" chart-colors="colors" chart-options="options">
-            </canvas> 
-          </div>
+          <call-statistics></call-statistics>
         </div>
         <div class="box-foot"></div>
       </div>

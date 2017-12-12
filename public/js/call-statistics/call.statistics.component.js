@@ -4,7 +4,17 @@
     let CallStatisticsComponent = angular.module('CallStatisticsComponent', ['chart.js']);
 
     CallStatisticsComponent.controller('CallStatisticsController', CallStatisticsController);
+    CallStatisticsComponent.directive('callStatistics', CallStatisticsDirective);
 
+    /**
+     * Directive to render HTML component
+     */
+    function CallStatisticsDirective() {
+        return {
+            controller: 'CallStatisticsController as callStatisticsController',
+            templateUrl: './js/call-statistics/call.statistics.html'
+        }
+    }
 
     /**
      * Controller para manejar el componente de estadisticas de agent por estado
@@ -12,15 +22,15 @@
      * @param {*} socket 
      */
     function CallStatisticsController($scope, socket) {
-        let vm = this;
-        vm.message = 'CallStatisticsComponent works fine!!'
-        vm.statistics = {}
+        let callStatisticsController = this;
+        callStatisticsController.message = 'CallStatisticsComponent works fine!!'
+        callStatisticsController.statistics = {}
 
-        $scope.data = []
+        callStatisticsController.data = []
         Chart.defaults.global.elements.rectangle.borderWidth = 1;
         Chart.defaults.bar.beginAtZero = true;
 
-        $scope.options = {
+        callStatisticsController.options = {
             scales: {
                 yAxes: [{
                     ticks: {
@@ -43,7 +53,7 @@
             }
         }
         
-        $scope.datasetOverride = [
+        callStatisticsController.datasetOverride = [
             {
                 backgroundColor: 'rgba(180,220,230,.7)'
             },
@@ -53,7 +63,7 @@
         ];
 
         socket.on('call center status', (function(msg) {
-            vm.statistics = msg.statistics;
+            callStatisticsController.statistics = msg.statistics;
 
             let agents = [];
             let accepted = [];
@@ -64,9 +74,9 @@
                 accepted.push(element.statistics.by.calls.accepted);   
                 rejected.push(element.statistics.by.calls.rejected);   
             }, this);
-            $scope.labels = agents;
-            $scope.series = ['ACCEPTED', 'REJECTED'];
-            $scope.data = [
+            callStatisticsController.labels = agents;
+            callStatisticsController.series = ['ACCEPTED', 'REJECTED'];
+            callStatisticsController.data = [
                 rejected,
                 accepted
             ];            
@@ -76,6 +86,6 @@
 
 
 
-        return vm;
+        return callStatisticsController;
     }
 })();
