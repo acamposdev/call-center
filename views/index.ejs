@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html ng-app="AppRoot">
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
+
+    <!-- Angular JS -->
+    <script src="/js/vendors/angular.min.js"></script>
+    <!--
+    <script data-require="angular.js@1.3.x" src="http://code.angularjs.org/1.3.15/angular.js" data-semver="1.3.15"></script>
+    <script data-require="angular-animate.js@1.3.x" src="http://code.angularjs.org/1.3.15/angular-animate.js" data-semver="1.2.1"></script>
+    -->
+    
+    <!-- Angular tree component -->
+    <script src="/js/appRoot.js"></script>
+    <script src="/js/call-center/call.center.component.js"></script>
+    <script src="/js/status-statistics/status.statistics.component.js"></script>
+    <script src="/js/call-statistics/call.statistics.component.js"></script>
+
+    <!-- Angular chart dependecies -->
+    <script src="/js/vendors/Chart.min.js"></script>
+    <script src="/js/vendors/angular-chart.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+  	<script type="text/javascript" language="Javascript">
+    var socket = io();
+
+    function postDone(callCenter) {
+      var data = callCenter.agents;
+
+      for(var x = 0; x < data.length; x++) {
+
+
+
+          // Seteamos las estadisticas
+          document.getElementById("statistics").innerHTML = 
+            '<div class="box-1">' +
+              '<div class="statistics">' +
+                '<div class="statistics-value">' + callCenter.statistics.by.status.TALKING + '</div>' +
+                '<div class="statistics-status">TALKING</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="box-1">' +
+              '<div class="statistics">' +
+                '<div class="statistics-value">' + callCenter.statistics.by.status['NOT AVAILABLE'] + '</div>' +
+                '<div class="statistics-status">NOT AVAILABLE</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="box-1">' +
+              '<div class="statistics">' +
+                '<div class="statistics-value">' + callCenter.statistics.by.status['AFTER WORK'] + '</div>' +
+                '<div class="statistics-status">AFTER WORK</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="box-1">' +
+              '<div class="statistics">' +
+                '<div class="statistics-value">' + callCenter.statistics.by.status.AVAILABLE + '</div>' +
+                '<div class="statistics-status">AVAILABLE</div>' +
+              '</div>' +
+            '</div>'
+      }
+    }
+
+    socket.on('call center status', postDone);
+    </script>
+  </head>
+  <body>
+    
+    <div class="box-container">
+      <!-- dashboard box -->
+
+      <div class="box box-2-1">
+        <div class="box-head bb-red">
+          DISTRIBUCION DE LLAMADAS EN TIEMPO REAL
+        </div>
+        <div class="box-body">
+          <!-- contenido dinamico -->
+          <div id="statistics" class="box-3">
+          </div>
+          <div class="box-1" ng-controller="StatusStatisticsController as vm">
+            <canvas id="doughnut" class="chart chart-doughnut" width="200"
+              chart-data="data" chart-labels="labels" chart-colors="colors">
+            </canvas> 
+          </div>
+        </div>
+        <div class="box-foot"></div>
+      </div>
+      
+      
+      <div class="box box-2-1">
+        <div class="box-head">
+          DISTRIBUCION DE LLAMADAS POR AGENTE
+        </div>
+        <div class="box-body">
+          <div ng-controller="CallStatisticsController as vm">
+            <canvas id="bar" class="chart chart-bar" height="60"
+              chart-series="series" chart-dataset-override="datasetOverride"
+              chart-data="data" chart-labels="labels" chart-colors="colors" chart-options="options">
+            </canvas> 
+          </div>
+        </div>
+        <div class="box-foot"></div>
+      </div>
+        
+
+        
+        
+
+      <div class="box box-4">
+        <div class="box-head bb-orange">
+          CALL CENTER (Real Time Supervisor)
+        </div>
+        <div class="box-body" id="callCenter">
+          <call-center>Loading...</call-center>
+        </div>
+        <div class="box-foot"></div>
+      </div>
+
+
+
+
+      <div class="box box-3-1">
+        <div class="box-head bb-violeta">
+          Contactos
+        </div>
+        <div class="box-body">
+          hjkfhasdj hshd fakjsdfasdlfhaskjdhf las dahsdf ads ha sdf asd fasdf asdf asdf asdf asdfasd
+        </div>
+        <div class="box-foot"></div>
+      </div>
+      <div class="box box-1-1">
+        <div class="box-head bb-red">
+          Contactos
+        </div>
+        <div class="box-body">
+          hjkfhasdj hshd fakjsdfasdlfhaskjdhf las dahsdf ads ha sdf asd fasdf asdf asdf asdf asdfasdhjkfhasdj hshd fakjsdfasdlfhaskjdhf las dahsdf ads ha sdf asd fasdf asdf asdf asdf asdfasdhjkfhasdj hshd fakjsdfasdlfhaskjdhf las dahsdf ads ha sdf asd fasdf asdf asdf asdf asdfasdhjkfhasdj hshd fakjsdfasdlfhaskjdhf las dahsdf ads ha sdf asd fasdf asdf asdf asdf asdfasd
+        </div>
+        <div class="box-foot"></div>
+      </div>
+
+
+      <div class="box box-4-1">
+        <div class="box-head">
+          Contactos
+        </div>
+        <div class="box-body">
+          hjkfhasdj hshd fakjsdfasdlfhaskjdhf las dahsdf ads ha sdf asd fasdf asdf asdf asdf asdfasdhjkfhasdj hshd fakjsdfasdlfhaskjdhf las dahsdf ads ha sdf asd fasdf asdf asdf asdf asdfasd
+        </div>
+        <div class="box-foot"></div>
+      </div>
+
+
+
+
+      <div class="box box-2-1">
+        <div class="box-head">
+          Contactos
+        </div>
+        <div class="box-body">
+          g asdha ksjdhfl ahsdkjfha sdh flkadskfjhal ksjdhf ljasdljfa lskdfljkdsjf aljksdlfjkasjdhf ljkaslkdjflkajsdlkjfa lkjsdlfjkasljkdhf lkajdsljfalsjkdfljkalsdjflajkhsdj fh asjhdfl sjdfh sdfh sj faljshd flslfls
+        </div>
+        <div class="box-foot"></div>
+      </div>
+      <div class="box box-2-1">
+        <div class="box-head">
+          Contactos
+        </div>
+        <div class="box-body">
+        </div>
+        <div class="box-foot"></div>
+      </div>
+
+
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="box-4">
+    <div class="tools">
+        <!-- SEARCHER INPUT -->
+        <div class="container-1">
+            <span class="icon"><i class="fa fa-search"></i></span>
+            <input type="search" id="search" placeholder="Filter by status, agent..." ng-model="criteria"/>
+        </div>
+    </div>
+</div>
+
+<div class="box-user" ng-repeat="agent in vm.agents | CallCenterFilter:criteria" ng-click="vm.toggleView(agent)">
+    <div class="{{vm.getCssStatus(agent).statusBl}}">
+        <!-- Agent avatar view -->
+        <div class="agent-avatar">
+            <img src="/images/agent.png" width="40px" height="40px">
+            <div class="status {{vm.getCssStatus(agent).statusBg}}">
+            </div>
+            <div animate-on-change="agent.status" class=""></div>
+        </div>
+        <!-- Agent basic data view -->
+        <div class="agent-data" ng-show="agent.viewMode == 0">
+            <!--div><label>Agent</label>: {{ agent.agent }}</div-->
+            <div><label>Name</label>: {{ agent.name }}</div>
+            <div><label>Ext</label>: {{ agent.agent }}</div>
+            <div><label>Status</label>: {{ agent.status }}</div>     
+            <div><label>Last change</label>: {{ agent.stateChangeTime }}</div>
+        </div>
+        <!-- Agent team and skill data view -->
+        <div class="agent-data" ng-show="agent.viewMode == 1">
+            <div><label>Teams</label>: {{ agent.teams }}</div>
+            <div><label>Skills</label>: {{ agent.skills }}</div>           
+            <div><label>Last change</label>: {{ agent.stateChangeTime }}</div>
+        </div>
+        <!-- Agent team and skill data view -->
+        <div class="agent-data" ng-show="agent.viewMode == 2">
+            <div><label>Calls Accepted</label>: {{ agent.statistics.by.calls.accepted }}</div>
+            <div><label>Calls Rejected</label>: {{ agent.statistics.by.calls.rejected }}</div>           
+            <div><label>Last change</label>: {{ agent.stateChangeTime }}</div>
+        </div>
+        
+    </div>
+    <div class="view-mode">
+        <div class="{{ (agent.viewMode == 0)? 'selected' : '' }}"></div>
+        <div class="{{ (agent.viewMode == 1)? 'selected' : '' }}"></div>
+        <div class="{{ (agent.viewMode == 2)? 'selected' : '' }}"></div>
+    </div>
+</div>
