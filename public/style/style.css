@@ -1,22 +1,46 @@
 
-label {
-  margin-bottom: 3px;
-}
-
 body {
-  margin: 5px;
+  margin: 20px;
   background-image: url('../images/bg.jpg');
-  background-size: 100% 100%;
   font-family: sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   color: #ccd0d1;
   font-weight: lighter;
   line-height: 1.5;
+  padding-top: 47px;
+  background-size: 100% 100%;
 }
 
 label {
   color: #f7f7f7;
+  margin-bottom: 3px;
 }
+
+/*
+ * Override Bootstrap CSS
+ */
+.navbar {
+  margin-bottom: 0px;
+}
+.navbar-default {
+  background-image: url(../images/bg.jpg);
+  border: 0px;
+  padding: 10px;
+  background-size: 100% auto;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #DEDEDE;
+}
+.navbar-default .navbar-brand {
+  color: #DEDEDE;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+  color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.1)
+}
+/*
+ * END Override Bootstrap CSS
+ */
 
 .box-container {
   padding: 0px;
@@ -34,6 +58,10 @@ label {
   border: 3px solid transparent;
   padding-right: 0px;
   padding-left: 0px;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s; /* Firefox */
+  -webkit-animation: fadein 1.5s; /* Safari and Chrome */
+  -o-animation: fadein 1.5s; /* Opera */
 }
 
 /** Cajas por tamaños */
@@ -113,7 +141,6 @@ label {
   border-bottom: 2px solid #408abf;
   padding-left: 15px;
   padding-top: 10px;
-  font-size: larger;
   color: #FFF;
   padding-bottom: 7px;
 }
@@ -167,6 +194,10 @@ label {
   color: rgb(155, 155, 159);
   padding-bottom: 5px;
   cursor: pointer;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s; /* Firefox */
+  -webkit-animation: fadein 1.5s; /* Safari and Chrome */
+  -o-animation: fadein 1.5s; /* Opera */
 }
 
 .agent-avatar {
