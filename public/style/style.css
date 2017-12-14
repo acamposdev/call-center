@@ -8,7 +8,6 @@ body {
   font-weight: lighter;
   line-height: 1.5;
   padding-top: 47px;
-  background-size: 100% 100%;
 }
 
 label {
@@ -16,6 +15,62 @@ label {
   margin-bottom: 3px;
 }
 
+.wrapper {	
+	margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+}
+
+.form-signin > .container-1 > .icon {
+  top: 9px;
+  left: 4px;
+}
+
+.form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+	}
+
+input#text:hover, input#text:focus, input#text:active {
+  outline: none;
+}
+input#password:hover, input#password:focus, input#password:active {
+  outline: none;
+}
+
+.btn {
+  border-radius: 0;
+}
+input[type="password"] {
+  height: 40px;
+  background: rgba(30, 30, 30, 0.3);
+  border: none;
+  font-size: 9pt;
+  float: left;
+  color: #ACACAC;
+  padding-right: 15px;
+  border-radius: 0;
+  margin: 5px;
+}
+
+input[type="text"] {
+  height: 40px;
+  background: rgba(30, 30, 30, 0.3);
+  border: none;
+  font-size: 9pt;
+  float: left;
+  color: #ACACAC;
+  padding-right: 15px;
+  border-radius: 0;
+  margin: 5px;
+}
 /*
  * Override Bootstrap CSS
  */
@@ -38,6 +93,34 @@ label {
   color: #FFFFFF;
   background-color: rgba(0, 0, 0, 0.1)
 }
+.navbar-collapse {
+  animation: fadein 2.5s;
+  -moz-animation: fadein 2.5s; /* Firefox */
+  -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+  -o-animation: fadein 2.5s; /* Opera */
+}
+
+/* Override form-control */
+.form-control:focus {
+  border-color: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-control {
+  border: 0px solid #ccc;
+  border-radius: 0px;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+}
+
+.form-signin > .btn {
+  margin: 5px;
+}
+.form-signin > .btn-block {
+  display: initial;
+  margin: 5px;
+}
 /*
  * END Override Bootstrap CSS
  */
@@ -58,10 +141,10 @@ label {
   border: 3px solid transparent;
   padding-right: 0px;
   padding-left: 0px;
-  animation: fadein 1.5s;
-  -moz-animation: fadein 1.5s; /* Firefox */
-  -webkit-animation: fadein 1.5s; /* Safari and Chrome */
-  -o-animation: fadein 1.5s; /* Opera */
+  animation: fadein 2.5s;
+  -moz-animation: fadein 2.5s; /* Firefox */
+  -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+  -o-animation: fadein 2.5s; /* Opera */
 }
 
 /** Cajas por tamaños */
@@ -194,10 +277,10 @@ label {
   color: rgb(155, 155, 159);
   padding-bottom: 5px;
   cursor: pointer;
-  animation: fadein 1.5s;
-  -moz-animation: fadein 1.5s; /* Firefox */
-  -webkit-animation: fadein 1.5s; /* Safari and Chrome */
-  -o-animation: fadein 1.5s; /* Opera */
+  animation: fadein 2.5s;
+  -moz-animation: fadein 2.5s; /* Firefox */
+  -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+  -o-animation: fadein 2.5s; /* Opera */
 }
 
 .agent-avatar {
@@ -212,11 +295,11 @@ label {
 .agent-data {
   float: left;
   padding-top: 5px;
-  min-height: 82px;
-  animation: fadein 1.5s;
-  -moz-animation: fadein 1.5s; /* Firefox */
-  -webkit-animation: fadein 1.5s; /* Safari and Chrome */
-  -o-animation: fadein 1.5s; /* Opera */
+  min-height: 90px;
+  animation: fadein 2.5s;
+  -moz-animation: fadein 2.5s; /* Firefox */
+  -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+  -o-animation: fadein 2.5s; /* Opera */
 }
 
 .agent-chart {
@@ -242,10 +325,10 @@ label {
 
 .view-mode > .selected {
   background-color: rgba(250, 250, 250, .7);
-  animation: fadein 1.5s;
-  -moz-animation: fadein 1.5s; /* Firefox */
-  -webkit-animation: fadein 1.5s; /* Safari and Chrome */
-  -o-animation: fadein 1.5s; /* Opera */
+  animation: fadein 2.5s;
+  -moz-animation: fadein 2.5s; /* Firefox */
+  -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+  -o-animation: fadein 2.5s; /* Opera */
 }
 
 @keyframes fadein {
@@ -427,7 +510,7 @@ label {
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
-  /* background-color: red; */
+  display: -webkit-box;
 }
 
 .container-1 input#search {
@@ -442,7 +525,16 @@ label {
   padding-right: 15px;
 }
 
-.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+.container-1 input[type="text"] {
+  padding-left: 40px;
+  padding-right: 15px;
+}
+.container-1 input[type="password"] {
+  padding-left: 40px;
+  padding-right: 15px;
+}
+
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active {
   outline: none;
 }
 

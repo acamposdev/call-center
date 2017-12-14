@@ -1,4 +1,4 @@
-const AGENTS_NUMBER = 12
+const AGENTS_NUMBER = 30
 
 const STATUS = [
     'AVAILABLE',

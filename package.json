@@ -14,6 +14,7 @@
     "async": "^2.5.0",
     "chance": "^1.0.12",
     "express": "^4.16.2",
+    "express-partials": "^0.3.0",
     "moment": "^2.19.3",
     "prettyjson": "^1.2.1",
     "single-line-log": "^1.1.2",
