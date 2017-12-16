@@ -24,6 +24,7 @@ function LoginController() {
      * @param {*} res 
      */
     function home(req, res) {
+        logger.log('debug', '(LoginController) dashboard ');
         res.render('dashboard');
     }
 

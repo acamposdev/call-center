@@ -18,6 +18,7 @@ var http = require('http').Server(app);
 io = require('socket.io')(http); // Socket.io as global
 var Engine = require('./middleware/engine/engine'); // Engine for call center traffic sim
 var routes = require('./routes/index')(); // Routes defined
+var ioMW = require('./controllers/socket.controller')(io);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -61,17 +62,10 @@ app.use(function (req, res, next) {
 // Montamos las rutas en la app
 app.use('/', routes);
 
-/*
- * io connection implementation
- */
-io.on('connection', function(socket){
-  //console.log('a user connected');
-});
-
 // Start http server
 http.listen(3000, function(){
   console.log('listening on *:3000');
-  var engine = new Engine({agents: 32});
+  var engine = new Engine({agents: 100});
   engine.init(io);
   engine.run();
 });

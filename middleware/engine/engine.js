@@ -43,7 +43,7 @@ function Engine(options) {
                     agent: '1000' + x,
                     name: chance.name({ nationality: 'en' }),
                     status: models.STATUS[_.random(0, models.STATUS.length - 1)],
-                    stateChangeTime: moment().format(constants.DATE_FORMAT),
+                    stateChangeTime: moment().format(constants.HOUR_FORMAT),
                     teams: [
                         'Team 1',
                         'Team 2'
@@ -76,7 +76,7 @@ function Engine(options) {
                 
                 _.map(agentsSample, (entry) => {
                     entry.status = _.sample(models.STATUS);
-                    entry.stateChangeTime = moment().format(constants.DATE_FORMAT);
+                    entry.stateChangeTime = moment().format(constants.HOUR_FORMAT);
                 
                     // Sim accepted and rejected calls
                     // by agent and all agents
