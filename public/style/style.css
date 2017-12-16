@@ -3,16 +3,27 @@ body {
   margin: 20px;
   background-image: url('../images/bg.jpg');
   font-family: sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   color: #ccd0d1;
   font-weight: lighter;
   line-height: 1.5;
   padding-top: 47px;
+  background-size: 100% 200%;
+  /*
+  background: rgba(48,84,120,1);
+  background: -moz-linear-gradient(left, rgba(48,84,120,1) 0%, rgba(34,57,89,1) 50%, rgba(22,33,60,1) 96%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(48,84,120,1)), color-stop(50%, rgba(34,57,89,1)), color-stop(96%, rgba(22,33,60,1)));
+  background: -webkit-linear-gradient(left, rgba(48,84,120,1) 0%, rgba(34,57,89,1) 50%, rgba(22,33,60,1) 96%);
+  background: -o-linear-gradient(left, rgba(48,84,120,1) 0%, rgba(34,57,89,1) 50%, rgba(22,33,60,1) 96%);
+  background: -ms-linear-gradient(left, rgba(48,84,120,1) 0%, rgba(34,57,89,1) 50%, rgba(22,33,60,1) 96%);
+  background: linear-gradient(to right, rgba(48,84,120,1) 0%, rgba(34,57,89,1) 50%, rgba(22,33,60,1) 96%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#305478', endColorstr='#16213c', GradientType=1 );
+  */
 }
 
 label {
   color: #f7f7f7;
-  margin-bottom: 3px;
+  margin-bottom: 0px;
 }
 
 .wrapper {	
@@ -82,6 +93,16 @@ input[type="text"] {
   border: 0px;
   padding: 10px;
   background-size: 100% auto;
+  /*
+  background: rgba(48,84,120,1);
+  background: -moz-linear-gradient(left, rgba(48,84,120,1) 0%, rgba(34,57,89,1) 50%, rgba(22,33,60,1) 96%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(48,84,120,1)), color-stop(50%, rgba(34,57,89,1)), color-stop(96%, rgba(22,33,60,1)));
+  background: -webkit-linear-gradient(left, rgba(48,84,120,1) 0%, rgba(34,57,89,1) 50%, rgba(22,33,60,1) 96%);
+  background: -o-linear-gradient(left, rgba(48,84,120,1) 0%, rgba(34,57,89,1) 50%, rgba(22,33,60,1) 96%);
+  background: -ms-linear-gradient(left, rgba(48,84,120,1) 0%, rgba(34,57,89,1) 50%, rgba(22,33,60,1) 96%);
+  background: linear-gradient(to right, rgba(48,84,120,1) 0%, rgba(34,57,89,1) 50%, rgba(22,33,60,1) 96%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#305478', endColorstr='#16213c', GradientType=1 );
+  */
 }
 .navbar-default .navbar-nav>li>a {
   color: #DEDEDE;
@@ -201,7 +222,7 @@ input[type="text"] {
   width: 100%; float: left;
 }
 .box-4-1 {
-  width: 100%; height: 200px; float: left;
+  width: 100%; height: 140px; float: left;
 }
 .box-4-2 {
   width: 100%; height: 400px; float: left;
@@ -295,7 +316,7 @@ input[type="text"] {
 .agent-data {
   float: left;
   padding-top: 5px;
-  min-height: 90px;
+  min-height: 70px;
   animation: fadein 2.5s;
   -moz-animation: fadein 2.5s; /* Firefox */
   -webkit-animation: fadein 2.5s; /* Safari and Chrome */
@@ -419,15 +440,15 @@ input[type="text"] {
   display: inline-block;
 }
 .statistics-value {
-  font-size: 50px;
+  font-size: 40px;
   color: white;
   margin-left: 10px;
   float: left;
 }
 .statistics-status {
   /* vertical-align: bottom; */
-  padding-top: 25px;
-  margin-left: 10px;
+  padding-top: 14px;
+  margin-left: 5px;
   word-break: keep-all;
   height: auto;
   width: 50px;
@@ -506,7 +527,7 @@ input[type="text"] {
   * SEARCH INPUT
   */
 .container-1 {
-  /* width: 300px; */
+  width: 300px;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
@@ -532,6 +553,10 @@ input[type="text"] {
 .container-1 input[type="password"] {
   padding-left: 40px;
   padding-right: 15px;
+}
+
+.alert {
+  margin: 5px;
 }
 
 .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active {

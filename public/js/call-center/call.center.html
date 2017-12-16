@@ -27,8 +27,8 @@
         </div>
         <!-- Agent team and skill data view -->
         <div class="agent-data" ng-show="agent.viewMode == 1">
-            <div><label>Teams</label>: {{ agent.teams }}</div>
-            <div><label>Skills</label>: {{ agent.skills }}</div>           
+            <div><label>Teams</label>: <span ng-repeat="team in agent.teams">{{ team }}{{ ($last)? '' : ', ' }}</span></div>
+            <div><label>Skills</label>: <span ng-repeat="skill in agent.skills">{{ skill }}{{ ($last)? '' : ', ' }}</span></div>           
             <div><label>Last change</label>: {{ agent.stateChangeTime }}</div>
         </div>
         <!-- Agent team and skill data view -->

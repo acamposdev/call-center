@@ -52,11 +52,12 @@
 
             // DISTRIBUCION DE AGENTES POR ESTADO
             statusController.labels = ['AVAILABLE', 'NOT AVAILABLE', 'TALKING', 'AFTER WORK'];
+
             statusController.data = [
-                (statusController.statistics.by.status['AVAILABLE'] === undefined)? 0 : statusController.statistics.by.status['AVAILABLE'],
-                (statusController.statistics.by.status['NOT AVAILABLE'] === undefined)? 0 : statusController.statistics.by.status['NOT AVAILABLE'],
-                (statusController.statistics.by.status['TALKING'] === undefined)? 0 : statusController.statistics.by.status['TALKING'],
-                (statusController.statistics.by.status['AFTER WORK'] === undefined)? 0 : statusController.statistics.by.status['AFTER WORK']
+                (statusController.statistics.by.status['AVAILABLE'] === undefined)? statusController.statistics.by.status['AVAILABLE'] = 0 : statusController.statistics.by.status['AVAILABLE'],
+                (statusController.statistics.by.status['NOT AVAILABLE'] === undefined)? statusController.statistics.by.status['NOT AVAILABLE'] = 0 : statusController.statistics.by.status['NOT AVAILABLE'],
+                (statusController.statistics.by.status['TALKING'] === undefined)? statusController.statistics.by.status['TALKING'] = 0 : statusController.statistics.by.status['TALKING'],
+                (statusController.statistics.by.status['AFTER WORK'] === undefined)? statusController.statistics.by.status['AFTER WORK'] = 0 : statusController.statistics.by.status['AFTER WORK']
             ];
             
         }));
