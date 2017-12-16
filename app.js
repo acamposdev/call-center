@@ -12,18 +12,18 @@ var bodyParser = require('body-parser');
 var partials = require('express-partials') // Middleware for view templates
 var passportLocalConf = require('./config/passport-strategies/local'); // Pssport middleware configuratio
 var passport = require('passport'); // Middleware for authetication;
-var Strategy = require('passport-local').Strategy; // Passport local strategy utility
 var flash = require('connect-flash'); // Middleware to flas messages on login erros
 var app = express();
 var http = require('http').Server(app);
 io = require('socket.io')(http); // Socket.io as global
 var Engine = require('./middleware/engine/engine'); // Engine for call center traffic sim
+var routes = require('./routes/index')(); // Routes defined
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/img/favicon.ico'));
+// favicon for browser tab
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 // Middleware for post forms from view to server
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,7 +42,6 @@ app.use(session({
 // Use flash messages
 app.use(flash());
 
-
 // Install passport configuration
 passportLocalConf();
 
@@ -53,32 +52,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-const sessionController = require('./controllers/session.controller');
-
 app.use(function (req, res, next) {
   // Hacer visible req.session en las vistas
   res.locals.session = req.session;
   next();
 });
 
-app.get('/', function(req, res){
-  res.render('index', {
-    error: req.flash('loginMessage')
-  });
-});
-app.get('/home', sessionController.loginRequired, function(req, res){
-  res.render('home');
-});
-
-app.post('/login', 
-  passport.authenticate('local', { 
-    successRedirect: '/home',
-    failureRedirect: '/',
-    failureFlash: true
-  })
-);
-
-app.get('/logout', sessionController.destroy);
+// Montamos las rutas en la app
+app.use('/', routes);
 
 /*
  * io connection implementation
@@ -90,12 +71,10 @@ io.on('connection', function(socket){
 // Start http server
 http.listen(3000, function(){
   console.log('listening on *:3000');
-  var engine = new Engine({agents: 16});
+  var engine = new Engine({agents: 32});
   engine.init(io);
   engine.run();
 });
-
-
 
 
 // catch 404 and forward to error handler
