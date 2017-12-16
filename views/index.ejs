@@ -8,16 +8,20 @@
         LOGIN DE USUARIO
       </div>
       <div class="box-body">
-        <form class="form-signin" action="/home">    
+        <form class="form-signin" action="/login" method="POST">    
           <div class="container-1">
             <span class="icon"><i class="fa fa-user"></i></span>
-            <input type="text" class="form-control" name="username" placeholder="Username"/>
+            <input type="text" class="form-control" name="username" value="admin" placeholder="Username"/>
           </div>
           <div class="container-1">
             <span class="icon"><i class="fa fa-lock"></i></span>
-            <input type="password" class="form-control" name="password" placeholder="Password"/>      
+            <input type="password" class="form-control" name="password" value="admin" placeholder="Password"/>      
           </div>
-          
+          <% if (error != '') { %>
+          <div class="container-1 alert alert-danger">
+            <strong>Error:</strong> <%= error %>
+          </div>
+          <% } %>
           <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
         </form>
       </div>

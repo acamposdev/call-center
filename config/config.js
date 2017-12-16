@@ -1,12 +1,14 @@
-const AGENTS_NUMBER = 30
-
-const STATUS = [
-    'AVAILABLE',
-    'TALKING',
-    'AFTER WORK',
-    'NOT AVAILABLE'
-]
-
-
-module.exports.AGENTS_NUMBER = AGENTS_NUMBER;
-module.exports.STATUS = STATUS;
+module.exports = {
+    app: {
+        // Nivel de trazas del fichero de log y de la consola
+        logger: {
+            console: {
+                level: 'info' // Nivel de las trazas de la consola
+            },
+            file: {
+                level: 'debug' // Nivel de las trazas del fichero de log
+            }
+        }
+    }
+};
+  
