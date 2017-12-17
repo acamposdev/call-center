@@ -8,11 +8,11 @@
     </div>
 </div>
 
-<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 box-user" ng-repeat="agent in vm.agents | CallCenterFilter:criteria" ng-click="vm.toggleView(agent)">
+<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 box-user" ng-repeat="agent in vm.agents | CallCenterFilter:criteria" ng-click="vm.toggleView(agent)">
     <div class="{{vm.getCssStatus(agent).statusBl}}">
         <!-- Agent avatar view -->
         <div class="agent-avatar">
-            <img src="/images/agent.png" width="40px" height="40px">
+            <img src="/images/agent.png" width="30px" height="30px">
             <div class="status {{vm.getCssStatus(agent).statusBg}}">
             </div>
             <div animate-on-change="agent.status" class=""></div>

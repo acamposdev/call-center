@@ -24,6 +24,7 @@ body {
 label {
   color: #f7f7f7;
   margin-bottom: 0px;
+  font-weight: 500;
 }
 
 .wrapper {	
@@ -233,10 +234,6 @@ input[type="text"] {
 .box-4-4 {
   width: 100%; height: 800px; float: left;
 }
-.box-4 {
-  width: 100%; float: left;
-}
-
 
 
 /** Cabecera para las cajas */
@@ -306,11 +303,11 @@ input[type="text"] {
 }
 
 .agent-avatar {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   float: left;
-  padding-left: 2px;
-  padding-top: 15px;
+  padding-left: 0px;
+  padding-top: 10px;
   position: relative;
 }
 
@@ -322,6 +319,9 @@ input[type="text"] {
   -moz-animation: fadein 2.5s; /* Firefox */
   -webkit-animation: fadein 2.5s; /* Safari and Chrome */
   -o-animation: fadein 2.5s; /* Opera */
+  min-width: 120px;
+  max-width: 140px;
+  
 }
 
 .agent-chart {
@@ -389,6 +389,9 @@ input[type="text"] {
 .box-user > div > .agent-data > div {
   padding-left: 10px;
   padding-top: 0px;
+  font-size: 10px;
+  width:  100%;
+  max-height: 15px;
 }
 
 /** border left colors */
@@ -419,8 +422,8 @@ input[type="text"] {
   width: 8px;
   height: 8px;
   border-radius: 4px;
-  margin-left: 15px;
-  margin-top: 10px;
+  margin-left: 11px;
+  margin-top: 19px;
 }
 
 .status-talking {
@@ -438,7 +441,7 @@ input[type="text"] {
 
 
 .statistics {
-  display: inline-block;
+  display: flex;
 }
 .statistics-value {
   font-size: 40px;
@@ -452,7 +455,7 @@ input[type="text"] {
   margin-left: 5px;
   word-break: keep-all;
   height: auto;
-  width: 50px;
+  /* width: 50px; */
   vertical-align: text-bottom;
   font-size: 9px;
   margin-right: 10px;
@@ -474,8 +477,8 @@ input[type="text"] {
   cursor: pointer;
   box-shadow: 0 0 0 rgba(255, 255, 255, 1);
   animation: pulse 3s 1; 
-  top: 62px;
-  left: 14px;
+  top: 56px;
+  left: 8px;
 }
 .pulse:hover {
   animation: none;
@@ -486,7 +489,7 @@ input[type="text"] {
     -webkit-box-shadow: 0 0 0 0 rgba(44,169,204, 0.8);
   }
   70% {
-    -webkit-box-shadow: 0 0 0 20px rgba(44,169,204, 0);
+    -webkit-box-shadow: 0 0 0 20px rgba(44,169,204, 0.2);
   }
   100% {
     -webkit-box-shadow: 0 0 0 0 rgba(44,169,204, 0);
@@ -495,11 +498,11 @@ input[type="text"] {
 @keyframes pulse {
   0% {
     -moz-box-shadow: 0 0 0 0 rgba(44,169,204, 0.8);
-    box-shadow: 0 0 0 0 rgba(44,169,204, 0.4);
+    box-shadow: 0 0 0 0 rgba(44,169,204, 0.8);
   }
   70% {
-    -moz-box-shadow: 0 0 0 20px rgba(44,169,204, 0);
-    box-shadow: 0 0 0 20px rgba(44,169,204, 0);
+    -moz-box-shadow: 0 0 0 20px rgba(44,169,204, 0.2);
+    box-shadow: 0 0 0 20px rgba(44,169,204, 0.2);
   }
   100% {
     -moz-box-shadow: 0 0 0 0 rgba(44,169,204, 0);

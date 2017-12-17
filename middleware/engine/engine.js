@@ -46,11 +46,13 @@ function Engine(options, socket) {
     this.init = function() {
         
         for (var x = 1; x <= agentsNumber; x++) {
+            var tmpName = chance.name({ nationality: 'en' });
+
             callCenter.agents.push( { 
                 id: x,
                 ext: 1000 + x,
                 agent: '1000' + x,
-                name: chance.name({ nationality: 'en' }),
+                name: tmpName.split(' ')[0][0] + '. ' + tmpName.split(' ')[1],
                 status: models.STATUS[_.random(0, models.STATUS.length - 1)],
                 stateChangeTime: moment().format(constants.HOUR_FORMAT),
                 teams: [
