@@ -4,18 +4,24 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "start": "node app",
+    "test": "mocha -R spec ./test/**/*.js",
+    "test report": "mocha -R mochawesome --reporter-options reportDir=./docs/mocha/ 'test/**/*.js'",
+    "coverage": "istanbul cover _mocha --dir './docs/coverage' 'test/**/*.js' -- -R spec",
+    "coverage report": "istanbul cover _mocha --dir './docs/coverage' 'test/**/*.js' -- -R mochawesome --reporter-options reportDir=./docs/mocha/",
+    "checklist": "echo[ & echo Comprobando vulnerabilidades... & nsp check & echo[ & echo Comprobando versiones... & npm-check --skip-unused & echo[ & echo Actualizando posibles versiones deprecadas... & npm-check -u & echo[ & echo Ejecutando test... & npm test",
+    "gendoc": "jsdoc ./controllers/** ./middleware/** -c './node_modules/ink-docstrap/template/jsdoc.conf.json' -d './docs/api docs/' -t './node_modules/ink-docstrap/template'"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular-chart.js": "^1.1.1",
     "async": "^2.5.0",
     "chance": "^1.0.12",
     "connect-flash": "^0.1.1",
+    "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-partials": "^0.3.0",
+    "express-session": "^1.15.6",
     "method-override": "^2.3.10",
     "moment": "^2.19.3",
     "passport": "^0.4.0",
@@ -28,6 +34,13 @@
     "winston": "^2.4.0"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.7"
+    "angular-chart.js": "^1.1.1",
+    "bootstrap": "^3.3.7",
+    "ink-docstrap": "^1.3.2",
+    "mocha": "2.4.5",
+    "istanbul": "0.4.0",
+    "mochawesome": "^1.3.0",
+    "supertest": "1.1.0",
+    "chai": "3.5.0"
   }
 }

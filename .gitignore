@@ -2,4 +2,5 @@
 *.log
 logs
 node_modules
-task
+tasks
+docs
