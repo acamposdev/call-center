@@ -65,18 +65,11 @@ app.use('/', routes);
 // Start http server
 http.listen(3000, function(){
   console.log('listening on *:3000');
-  var engine = new Engine({agents: 100});
-  engine.init(io);
+  var engine = new Engine({agents: 100}, io);
+  engine.init();
   engine.run();
 });
 
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found: ' + req.path);
-  err.status = 404;
-  next(err);
-});
 
 // error handlers
 
@@ -103,3 +96,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+module.exports = app;

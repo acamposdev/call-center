@@ -17,7 +17,7 @@ module.exports = function() {
 
     // Login Routes: login, logout and home (dashboard)
     router.get('/', loginController.login);
-    router.get('/dashboard', sessionController.loginRequired, loginController.home);
+    router.get('/dashboard', sessionController.auth, loginController.home);
     router.get('/logout', sessionController.destroy);
     router.post('/login', passport.authenticate('local', { 
             successRedirect: '/dashboard',

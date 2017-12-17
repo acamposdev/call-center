@@ -2,7 +2,8 @@ const logger = require('../config/logger');
 
 
 /**
- * Controller for login request
+ * @class LoginController
+ * Controller for login request. Contiene el  enrutamiento al login y a la home
  */
 function LoginController() {
 
