@@ -13,7 +13,6 @@ function SessionController() {
    * @param {*} next 
    */
   function auth(req, res, next) {
-
     if (req.isAuthenticated()) {
       req.user.password = '';
       req.session.user = req.user;
@@ -26,7 +25,10 @@ function SessionController() {
         next();
     } else {
         logger.log('debug', '(SesssionController) Autenticacion para el usuario FAIL');
-        res.redirect('/');
+        res.status(403);
+        res.render('index', {
+            error: req.flash('loginMessage')
+        });
     }
   }
 

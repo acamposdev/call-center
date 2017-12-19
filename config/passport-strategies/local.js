@@ -46,7 +46,7 @@ module.exports = function() {
                 return cb(null, user);
             } else {
                 err = {
-                    msg: 'Invalid user or passwrod.'
+                    msg: 'Invalid user or password.'
                 }
                 return cb(null, false, req.flash('loginMessage', err.msg));
             }
