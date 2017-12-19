@@ -39,7 +39,8 @@ function Engine(options, socket) {
     var io = socket || null;
     var agentsNumber = options.agents || 10; // 10 por defecto
     var logger = options.logger || false; // false por defecto
-
+    this.lastDaySendData = new Date().getDate();
+    
     /**
      * Inicializa el estado del call center, numero de agentes e informacion (mock) relacionada con estos
      */
@@ -82,6 +83,20 @@ function Engine(options, socket) {
     this.run = function() {
         let timing = _.random(0.2, 1.5) * 1000;
         callCenter.timing = timing;
+
+        // Reseteo de estadsticas cada dia
+        if (this.lastDaySendData != new Date().getDate()) {
+            callCenter.statistics.by.calls.accepted = 0;
+            callCenter.statistics.by.calls.rejected = 0;
+            
+            _.forEach(callCenter.agents, (entry) => {
+                entry.statistics.by.calls.accepted = 0;
+                entry.statistics.by.calls.rejected = 0;    
+                this.lastDaySendData = new Date().getDate();
+            });
+        }
+
+
         setTimeout((() => {
         
             let samples = _.random(0, agentsNumber);
