@@ -12,7 +12,7 @@
     function CallStatisticsDirective() {
         return {
             controller: 'CallStatisticsController as callStatisticsController',
-            templateUrl: './js/call-statistics/call.statistics.html'
+            templateUrl: './js/app/call-statistics/call.statistics.html'
         }
     }
 

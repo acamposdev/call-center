@@ -35,6 +35,7 @@
     root.controller('RootController', ['$scope', ($scope) => {
         let vm = this;
         vm.message = 'Angular works!';
-        
+        console.log(toaster);
+
         return vm;
     }]);

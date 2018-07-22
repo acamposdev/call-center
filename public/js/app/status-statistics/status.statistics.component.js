@@ -12,7 +12,7 @@
     function StatusStatististicsDirective() {
         return {
             controller: 'StatusStatisticsController as statusController',
-            templateUrl: './js/status-statistics/status.statistics.html'
+            templateUrl: './js/app/status-statistics/status.statistics.html'
         }
     }
 

@@ -1,6 +1,6 @@
-let callCenter = angular.module('CallCenter', []);
+let callCenter = angular.module('CallCenter', ['toaster']);
 
-callCenter.controller('CallCenterController', ['$scope', 'socket', CallCenterController]);
+callCenter.controller('CallCenterController', ['$anchorScroll', '$location', '$scope', 'socket', 'toaster', CallCenterController]);
 callCenter.directive('callCenter', CallCenterDirective);
 callCenter.directive('animateOnChange', StateChangeAnimation);
 callCenter.filter('CallCenterFilter', ['$animate', '$timeout', CallCenterFilter]);
@@ -30,7 +30,7 @@ function StateChangeAnimation($animate,$timeout) {
 function CallCenterDirective() {
     return {
         controller: 'CallCenterController as vm',
-        templateUrl: './js/call-center/call.center.html'
+        templateUrl: './js/app/call-center/call.center.html'
     }
 }
 
@@ -64,11 +64,12 @@ function CallCenterFilter() {
  * @param {*}  
  * @param {*} socket 
  */
-function CallCenterController($scope, socket) {
+function CallCenterController($anchorScroll, $location, $scope, socket, toaster) {
     let vm = this;
     vm.message = 'CallCenterController works!';
     vm.agents = [];
     $scope.data = [10, 5];
+    
     
 
     socket.on('call center status', (function(msg) {
@@ -85,7 +86,24 @@ function CallCenterController($scope, socket) {
                 }
             }, this);    
         });
+
+        if (msg.alerts.length > 0) {
+            vm.showAlerts(msg.alerts);
+        }
     }));
+
+    vm.showAlerts = function(alerts) {
+        alerts.forEach((entry) => {
+            toaster.pop('warning', "Alerta", entry, 3000);
+        })
+    }
+
+    vm.toggleAllAgentsView = function() {
+        vm.agents.forEach((agent) => {
+            vm.toggleView(agent);
+        });
+    }
+
 
     vm.toggleView = function(agent) {
         if (agent.viewMode >= 2) {
@@ -118,5 +136,11 @@ function CallCenterController($scope, socket) {
         return cssStatus;
     }
     
+    vm.scrollTo = function(id) {
+        $location.hash(id);
+        $anchorScroll.yOffset = 65;
+        $anchorScroll();
+     }
+
     return vm;
 }
