@@ -4,3 +4,5 @@ logs
 node_modules
 tasks
 docs
+changelog.txt
+.vscode/launch.json

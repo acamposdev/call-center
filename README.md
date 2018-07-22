@@ -1,43 +1,23 @@
-Call Center
------------
+# Call Center Monitor
 
-Aplicación de supervision de un call center que consta de:
+## Introduction
 
-·   Servidor en Node JS que genera trafico simulando un call center y emite el estado del call center por sockets       (socket.io).
-·   Vista basada en componentes desarrollaos en Angular 1.6
 
-Librerias de terceros utilizadas (consultar package.json para ver versiones especficas):
+Web application for call center realtime monitoring.
 
-    Core: 
+<ul>
+    <li>Backend in Node JS (web server Express JS) that sims call center traffic with emits messages (socket.io).</li>
+    <li>Frontend in developed in Angular 1.6</li>
+    <li>View package.json for more detailed third party libs</li>
+</ul>
 
-        express
-        express-partials
-        express-session
-        method-override
-        ejs
-        socket.io
 
-    Autenticacion:
+## Installation
 
-        passport
-        passport-local
-        connect-flash
-    
-    Utilidades:
-
-        chance
-        moment
-        underscore
-        prettyjson
-        serve-favicon
-        single-line-log
-        winston
-
-    Integracion continua:
-
-        mocha
-        istanbul
-        mochawesome
-        supertest
-        chai
+<ol>
+    <li>Clone the repository <strong>https://github.com/acamposdev/call-center</strong>.</li>
+    <li>From call-center folder execute command line <strong>npm install</strong> for install all dependecies.</li>
+    <li>Type <strong>npm start</strong> to run web server. This must run server on port 3000.</li> 
+    <li>Open you browser on <strong>http://localhost:3000</strong> and login with <strong>admin/admin</strong></li>
+</ol>
 

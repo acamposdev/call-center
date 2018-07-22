@@ -1,7 +1,8 @@
 <!-- Navbar de navegacion -->
 <%- include _navbar.ejs %>
 
-<div class="container box-container">
+
+<div class="container box-container" id="global-position">
     <!-- DISTRIBUCION DE AGENTES POR ESTADO -->
     
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box">
@@ -29,14 +30,16 @@
         <div class="box-foot"></div>
     </div>
 </div>
-    
+
 <!-- CALL CENTER PANEL -->  
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box">  
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box" id="callCenter">  
     <div class="box-4">
         <div class="box-head">
            CALL CENTER (Real Time Supervisor)
+           <span class="glyphicon glyphicon-resize-full pull-right" ng-click="vm.scrollTo('callCenter')"></span>
+           <span class="glyphicon glyphicon glyphicon-resize-small pull-right" ng-click="vm.scrollTo('global-position')"></span>
         </div>
-        <div class="box-body" id="callCenter">
+        <div class="box-body">
             <call-center>Loading...</call-center>
         </div>
         <div class="box-foot"></div>

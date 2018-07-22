@@ -3,7 +3,7 @@ body {
   margin: 20px;
   background-image: url('../images/bg.jpg');
   font-family: sans-serif;
-  font-size: 11px;
+  font-size: 14px;
   color: #ccd0d1;
   font-weight: lighter;
   line-height: 1.5;
@@ -44,11 +44,15 @@ label {
 }
 
 .form-control {
-	  position: relative;
-	  font-size: 16px;
-	  height: auto;
-	  padding: 10px;
-	}
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+.box-head .pull-right {
+  margin-right: 10px;
+}
 
 input#text:hover, input#text:focus, input#text:active {
   outline: none;
@@ -311,6 +315,12 @@ input[type="text"] {
   position: relative;
 }
 
+.agent-avatar > img {
+  vertical-align: middle;
+  border: 0px solid;
+  border-radius: 25px;
+}
+
 .agent-data {
   float: left;
   padding-top: 10px;
@@ -428,15 +438,19 @@ input[type="text"] {
 
 .status-talking {
   background-color: #9242a2;
+  border-color: #9242a2 !important;
 }
 .status-available {
   background-color: #5bdf74;
+  border-color: #5bdf74 !important;
 }
 .status-not-available {
   background-color: #d94141;
+  border-color: #d94141 !important;
 }
 .status-after-work {
   background-color: #dd8b2c;
+  border-color: #dd8b2c !important;
 }
 
 
@@ -462,12 +476,6 @@ input[type="text"] {
   float: left;
 }
 
-
-
-
-
-
-
 .pulse {
   position: absolute;
   width: 14px;
@@ -476,7 +484,7 @@ input[type="text"] {
   background: transparent;
   cursor: pointer;
   box-shadow: 0 0 0 rgba(255, 255, 255, 1);
-  animation: pulse 3s 1; 
+  animation: pulse 3s .5; 
   top: 56px;
   left: 8px;
 }
@@ -571,7 +579,7 @@ input[type="text"] {
   position: absolute;
   /* top: 50%; */
   margin-left: 15px;
-  margin-top: 8px;
+  margin-top: 5px;
   z-index: 1;
   color: #4f5b66;
 }
@@ -585,4 +593,49 @@ input[type="text"] {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+}
+
+#toast-container {
+  top: 75px;
+}
+
+#toast-container>:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#toast-container > div {
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#toast-container>div {
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.tool {
+  height: 30px;
+  background: rgba(30, 30, 30, 0.3);
+  border: none;
+  font-size: 9pt;
+  float: left;
+  color: #FFF;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 7px;
+}
+
+.tool:hover {
+  height: 30px;
+  background: rgba(30, 30, 30, 0.3);
+  border: none;
+  font-size: 9pt;
+  float: left;
+  color: #FFF;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 7px;
 }
