@@ -20,7 +20,7 @@ callCenter = {
             }
         }
     },
-    alerts: []  
+    alerts: []
 }
 
 /**
@@ -40,16 +40,16 @@ function Engine(options, socket) {
     var agentsNumber = options.agents || 10; // 10 por defecto
     var logger = options.logger || false; // false por defecto
     this.lastDaySendData = new Date().getDate();
-    
+
     /**
      * Inicializa el estado del call center, numero de agentes e informacion (mock) relacionada con estos
      */
     this.init = function() {
-        
+
         for (var x = 1; x <= agentsNumber; x++) {
             var tmpName = chance.name({ nationality: 'en' });
 
-            callCenter.agents.push( { 
+            callCenter.agents.push({
                 id: chance.guid(),
                 ext: 1000 + x,
                 agent: '1000' + x,
@@ -88,25 +88,23 @@ function Engine(options, socket) {
         if (this.lastDaySendData != new Date().getDate()) {
             callCenter.statistics.by.calls.accepted = 0;
             callCenter.statistics.by.calls.rejected = 0;
-            
+
             _.forEach(callCenter.agents, (entry) => {
                 entry.statistics.by.calls.accepted = 0;
-                entry.statistics.by.calls.rejected = 0;    
+                entry.statistics.by.calls.rejected = 0;
                 this.lastDaySendData = new Date().getDate();
             });
         }
 
-
         setTimeout((() => {
-        
             let samples = _.random(0, agentsNumber);
             let agentsSample = _.sample(callCenter.agents, _.random(0, samples / 2));
             callCenter.alerts = [];
-            
+
             _.map(agentsSample, (entry) => {
                 entry.status = _.sample(models.STATUS);
                 entry.stateChangeTime = moment().format(constants.HOUR_FORMAT);
-            
+
                 // Sim accepted and rejected calls
                 // by agent and all agents
                 if ('TALKING' === entry.status) {
@@ -119,9 +117,7 @@ function Engine(options, socket) {
             });
 
             callCenter.statistics.by.status = _.countBy(callCenter.agents, 'status');
-    
-            rEngine.run(callCenter.statistics.by.status["AVAILABLE"]);
-            
+
             let rule = eval('callCenter.statistics.by.status["AVAILABLE"] == undefined');
             if (rule) {
                 callCenter.alerts.push('No hay agentes disponibles!');
@@ -134,7 +130,7 @@ function Engine(options, socket) {
             if (io != null) {
                 io.emit('call center status', callCenter);
             }
-            
+
             this.run();
         }).bind(this), timing);
     }
