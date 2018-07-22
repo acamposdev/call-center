@@ -19,8 +19,8 @@ callCenter = {
                 rejected: 0
             }
         }
-    }
-        
+    },
+    alerts: []  
 }
 
 /**
@@ -50,7 +50,7 @@ function Engine(options, socket) {
             var tmpName = chance.name({ nationality: 'en' });
 
             callCenter.agents.push( { 
-                id: x,
+                id: chance.guid(),
                 ext: 1000 + x,
                 agent: '1000' + x,
                 name: tmpName.split(' ')[0][0] + '. ' + tmpName.split(' ')[1],
@@ -101,6 +101,7 @@ function Engine(options, socket) {
         
             let samples = _.random(0, agentsNumber);
             let agentsSample = _.sample(callCenter.agents, _.random(0, samples / 2));
+            callCenter.alerts = [];
             
             _.map(agentsSample, (entry) => {
                 entry.status = _.sample(models.STATUS);
@@ -119,6 +120,13 @@ function Engine(options, socket) {
 
             callCenter.statistics.by.status = _.countBy(callCenter.agents, 'status');
     
+            rEngine.run(callCenter.statistics.by.status["AVAILABLE"]);
+            
+            let rule = eval('callCenter.statistics.by.status["AVAILABLE"] == undefined');
+            if (rule) {
+                callCenter.alerts.push('No hay agentes disponibles!');
+            }
+
             if (logger) {
                 log(prettyjson.render(callCenter, { noColor: false }));
             }
