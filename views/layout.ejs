@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="AppRoot">
   <head>
-    <title></title>
+    <title>Supervisor</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,10 +15,10 @@
     -->
     
     <!-- Angular tree component -->
-    <script src="/js/appRoot.js"></script>
-    <script src="/js/call-center/call.center.component.js"></script>
-    <script src="/js/status-statistics/status.statistics.component.js"></script>
-    <script src="/js/call-statistics/call.statistics.component.js"></script>
+    <script src="/js/app/appRoot.js"></script>
+    <script src="/js/app/call-center/call.center.component.js"></script>
+    <script src="/js/app/status-statistics/status.statistics.component.js"></script>
+    <script src="/js/app/call-statistics/call.statistics.component.js"></script>
 
     <!-- Angular chart dependecies -->
     <script src="/js/vendors/Chart.min.js"></script>
@@ -42,11 +42,23 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/style/style.css">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/js/vendors/jquery.min.js"></script>
     <script src="/js/vendors/bootstrap.min.js"></script>
 
+
+
+
+    
+    <script src="https://code.angularjs.org/1.2.0/angular-animate.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.js"></script>
+
+    <div ng-controller="CallCenterController">
+    </div>
+
+    <toaster-container></toaster-container>
   </body>
 </html>
