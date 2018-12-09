@@ -35,10 +35,10 @@ app.use(partials());
 app.use(express.static(path.join(__dirname, 'public')));
 // use express sessions
 app.use(session({
-  secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true,
-  cookie: {}
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true,
+    cookie: {}
 }));
 // Use flash messages
 app.use(flash());
@@ -46,28 +46,28 @@ app.use(flash());
 // Install passport configuration
 passportLocalConf();
 
-  
+
 // Initialize Passport and restore authentication state, if any, from the
 // session.
 app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use(function (req, res, next) {
-  // Hacer visible req.session en las vistas
-  res.locals.session = req.session;
-  next();
+app.use(function(req, res, next) {
+    // Hacer visible req.session en las vistas
+    res.locals.session = req.session;
+    next();
 });
 
 // Montamos las rutas en la app
 app.use('/', routes);
 
 // Start http server
-http.listen(3000, function(){
-  console.log('listening on *:3000');
-  var engine = new Engine({agents: 100}, io);
-  engine.init();
-  engine.run();
+http.listen(3000, function() {
+    console.log('listening on *:3000');
+    var engine = new Engine({ agents: 24 }, io);
+    engine.init();
+    engine.run();
 });
 
 
@@ -76,25 +76,25 @@ http.listen(3000, function(){
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    logger.log('error', err);
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
+    app.use(function(err, req, res, next) {
+        logger.log('error', err);
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
     });
-  });
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  logger.log('error', err);
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+    logger.log('error', err);
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
 
 module.exports = app;
