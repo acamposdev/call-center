@@ -5,6 +5,12 @@
 
 Web application for call center realtime monitoring.
 
+<br/>
+
+![Alt text](screenshot.gif?raw=true "Snapshot")
+
+<br/>
+
 <ul>
     <li>Backend in Node JS (web server Express JS) that sims call center traffic with emits messages (socket.io).</li>
     <li>Frontend in developed in Angular 1.6</li>
